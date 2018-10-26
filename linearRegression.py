@@ -13,3 +13,8 @@ def main():
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
     linreg = LinearRegression()
     linreg.fit(X_train, y_train)
+    ypred = linreg.pred(X_test)
+
+    absoluteErr = metrics.mean_absolute_error(y_test, ypred)
+    squaredErr = metrics.mean_square_error(y_test, ypred)
+    rootErr = np.sqrt(squaredErr)
